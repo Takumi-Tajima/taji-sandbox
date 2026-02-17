@@ -1,1 +1,106 @@
 @import "tailwindcss";
+
+@layer components {
+  .auth-container {
+    @apply flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12;
+  }
+
+  .auth-card {
+    @apply w-full max-w-md rounded-lg bg-white p-8 shadow-lg;
+  }
+
+  .auth-card h2 {
+    @apply mb-6 text-center text-2xl font-bold text-gray-900;
+  }
+
+  .auth-card h3 {
+    @apply mb-2 text-lg font-semibold text-gray-900;
+  }
+
+  .auth-card .input {
+    @apply mb-4;
+  }
+
+  .auth-card label {
+    @apply mb-1 block text-sm font-medium text-gray-700;
+  }
+
+  .auth-card label abbr {
+    @apply ml-0.5 text-red-500 no-underline;
+  }
+
+  .auth-card input[type="email"],
+  .auth-card input[type="text"],
+  .auth-card input[type="password"],
+  .auth-card input[type="tel"] {
+    @apply block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none;
+  }
+
+  .auth-card .field_with_errors input {
+    @apply border-red-500;
+  }
+
+  .auth-card .hint {
+    @apply mt-1 block text-xs text-gray-500;
+  }
+
+  .auth-card .error {
+    @apply mt-1 block text-xs text-red-600;
+  }
+
+  .auth-card .boolean {
+    @apply mb-4;
+  }
+
+  .auth-card .boolean label {
+    @apply mb-0 flex cursor-pointer items-center gap-2 text-sm text-gray-700;
+  }
+
+  .auth-card .boolean input[type="checkbox"] {
+    @apply h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500;
+  }
+
+  .auth-card .error_notification {
+    @apply mb-4 rounded-md bg-red-50 p-4 text-sm text-red-700;
+  }
+
+  .auth-btn {
+    @apply w-full cursor-pointer rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+
+  .auth-btn-danger {
+    @apply cursor-pointer rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  .auth-links {
+    @apply mt-6 space-y-2 text-center text-sm;
+  }
+
+  .auth-links a {
+    @apply text-indigo-600 hover:text-indigo-500;
+  }
+
+  .auth-errors {
+    @apply mb-4 rounded-md bg-red-50 p-4;
+  }
+
+  .auth-errors h3 {
+    @apply text-sm font-medium text-red-800;
+  }
+
+  .auth-errors ul {
+    @apply mt-2 list-disc pl-5 text-sm text-red-700;
+  }
+
+  .auth-notice {
+    @apply mb-2 text-sm text-amber-600;
+  }
+
+  .auth-divider {
+    @apply my-6 border-gray-200;
+  }
+
+  .auth-danger-title {
+    @apply mb-2 text-lg font-semibold text-red-600;
+  }
+}

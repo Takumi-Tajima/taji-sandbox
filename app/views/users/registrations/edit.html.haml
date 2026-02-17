@@ -1,0 +1,16 @@
+.auth-container
+  .auth-card
+    %h2 アカウント編集
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+      = f.input :email, autofocus: true
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %p.auth-notice= "#{resource.unconfirmed_email} の確認待ち"
+      = f.input :password, hint: "変更しない場合は空欄のまま", required: false, input_html: { autocomplete: "new-password" }
+      = f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password" }
+      = f.input :current_password, hint: "変更を反映するには現在のパスワードを入力してください", required: true, input_html: { autocomplete: "current-password" }
+      = f.button :submit, "更新", class: "auth-btn"
+    %hr.auth-divider
+    %h3.auth-danger-title アカウント削除
+    %p
+      = button_to "アカウントを削除", registration_path(resource_name), method: :delete, class: "auth-btn-danger", data: { turbo_confirm: "本当に削除しますか？" }

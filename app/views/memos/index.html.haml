@@ -1,11 +1,12 @@
-%h1.text-2xl.font-bold.mb-6 メモ一覧
-
-- if @memos.any?
-  %ul.space-y-4
-    - @memos.each do |memo|
-      %li.p-4.border.rounded
-        %h2.text-lg.font-semibold= memo.title
-        %p.mt-2.text-gray-600= truncate(memo.body, length: 200)
-        %time.block.mt-2.text-sm.text-gray-400= l(memo.created_at, format: :short)
-- else
-  %p.text-gray-500 メモはまだありません。
+.mx-auto.max-w-3xl.px-4.py-12
+  %h1.text-2xl.font-bold.text-gray-900.mb-8 メモ一覧
+  - if @memos.any?
+    .space-y-4
+      - @memos.each do |memo|
+        .rounded-lg.bg-white.p-6.shadow-sm.border.border-gray-200.hover:shadow-md.transition-shadow
+          %h2.text-lg.font-semibold.text-gray-900= memo.title
+          %p.mt-2.text-sm.text-gray-600.line-clamp-3= memo.body
+          %time.mt-3.block.text-xs.text-gray-400= l(memo.created_at, format: :short)
+  - else
+    .rounded-lg.bg-white.p-12.text-center.shadow-sm.border.border-gray-200
+      %p.text-gray-500 メモはまだありません。

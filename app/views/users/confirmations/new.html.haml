@@ -1,0 +1,10 @@
+.auth-container
+  .auth-card
+    %h2 確認メール再送
+    = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+      = f.error_notification
+      = f.full_error :confirmation_token
+      = f.input :email, required: true, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), input_html: { autocomplete: "email" }
+      = f.button :submit, "確認メールを再送", class: "auth-btn"
+    .auth-links
+      = render "users/shared/links"

@@ -1,0 +1,12 @@
+.auth-container
+  .auth-card
+    %h2 パスワード変更
+    = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+      = f.input :reset_password_token, as: :hidden
+      = f.full_error :reset_password_token
+      = f.input :password, label: "新しいパスワード", required: true, autofocus: true, hint: ("#{@minimum_password_length}文字以上" if @minimum_password_length), input_html: { autocomplete: "new-password" }
+      = f.input :password_confirmation, label: "新しいパスワード（確認用）", required: true, input_html: { autocomplete: "new-password" }
+      = f.button :submit, "パスワードを変更", class: "auth-btn"
+    .auth-links
+      = render "users/shared/links"

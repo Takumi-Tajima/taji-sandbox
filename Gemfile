@@ -11,6 +11,7 @@ gem 'jsbundling-rails'
 gem 'pg'
 gem 'propshaft'
 gem 'puma'
+gem 'simple_form'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
@@ -20,5 +21,6 @@ end
 
 group :development do
   gem 'html2haml'
+  gem 'letter_opener_web'
   gem 'web-console'
 end
