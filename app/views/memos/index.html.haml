@@ -1,0 +1,11 @@
+%h1.text-2xl.font-bold.mb-6 メモ一覧
+
+- if @memos.any?
+  %ul.space-y-4
+    - @memos.each do |memo|
+      %li.p-4.border.rounded
+        %h2.text-lg.font-semibold= memo.title
+        %p.mt-2.text-gray-600= truncate(memo.body, length: 200)
+        %time.block.mt-2.text-sm.text-gray-400= l(memo.created_at, format: :short)
+- else
+  %p.text-gray-500 メモはまだありません。
