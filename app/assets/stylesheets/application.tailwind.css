@@ -103,4 +103,8 @@
   .auth-danger-title {
     @apply mb-2 text-lg font-semibold text-red-600;
   }
+
+  .auth-card svg {
+    @apply max-w-48 h-auto;
+  }
 }

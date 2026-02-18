@@ -1,5 +1,7 @@
 .mx-auto.max-w-3xl.px-4.py-12
-  %h1.text-2xl.font-bold.text-gray-900.mb-8 メモ一覧
+  .flex.items-center.justify-between.mb-8
+    %h1.text-2xl.font-bold.text-gray-900 メモ一覧
+    = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-sm text-gray-500 hover:text-gray-700 cursor-pointer'
   - if @memos.any?
     .space-y-4
       - @memos.each do |memo|

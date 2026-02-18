@@ -1,0 +1,12 @@
+.auth-container
+  .auth-card
+    %h2 二要素認証
+    %p.mb-4.text-sm.text-gray-600
+      認証アプリに表示されている6桁のコードを入力してください。
+    = form_with url: two_factor_verification_path, method: :post do |f|
+      .input
+        = f.label :otp_attempt, '認証コード'
+        = f.text_field :otp_attempt, autofocus: true, autocomplete: 'one-time-code', inputmode: 'numeric', pattern: '[0-9]*', maxlength: 6
+      = f.submit '認証する', class: 'auth-btn'
+    .auth-links
+      %p= link_to 'ログイン画面に戻る', new_user_session_path

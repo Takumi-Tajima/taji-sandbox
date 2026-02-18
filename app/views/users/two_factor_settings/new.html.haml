@@ -1,0 +1,17 @@
+.auth-container
+  .auth-card
+    %h2 二要素認証の設定
+    %p.mb-4.text-sm.text-gray-600
+      認証アプリ（Google Authenticator等）で以下のQRコードをスキャンしてください。
+    .mb-6.flex.justify-center
+      = raw @qr_svg
+    %details.mb-4
+      %summary.cursor-pointer.text-sm.text-indigo-600 QRコードを読み取れない場合
+      %p.mt-2.break-all.rounded.bg-gray-100.p-3.font-mono.text-xs= @otp_secret
+    = form_with url: two_factor_setting_path, method: :post do |f|
+      .input
+        = f.label :otp_attempt, '認証コード'
+        = f.text_field :otp_attempt, autofocus: true, autocomplete: 'one-time-code', inputmode: 'numeric', pattern: '[0-9]*', maxlength: 6
+      = f.submit '有効にする', class: 'auth-btn'
+    .auth-links
+      %p= link_to 'アカウント設定に戻る', edit_user_registration_path

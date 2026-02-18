@@ -11,6 +11,17 @@
       = f.input :current_password, hint: "変更を反映するには現在のパスワードを入力してください", required: true, input_html: { autocomplete: "current-password" }
       = f.button :submit, "更新", class: "auth-btn"
     %hr.auth-divider
+    %h3 二要素認証
+    - if current_user.two_factor_enabled?
+      %p.mb-3.text-sm.text-green-700
+        二要素認証は有効です。
+      = button_to '二要素認証を無効にする', two_factor_setting_path, method: :delete, class: 'auth-btn-danger', data: { turbo_confirm: '二要素認証を無効にしますか？' }
+    - else
+      %p.mb-3.text-sm.text-gray-600
+        二要素認証はまだ設定されていません。
+      %p
+        = link_to '二要素認証を設定する', new_two_factor_setting_path, class: 'auth-btn inline-block text-center'
+    %hr.auth-divider
     %h3.auth-danger-title アカウント削除
     %p
       = button_to "アカウントを削除", registration_path(resource_name), method: :delete, class: "auth-btn-danger", data: { turbo_confirm: "本当に削除しますか？" }
