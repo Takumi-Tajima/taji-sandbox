@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 8.1.2'
 
 gem 'bootsnap', require: false
+gem 'csv'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'devise-two-factor'
